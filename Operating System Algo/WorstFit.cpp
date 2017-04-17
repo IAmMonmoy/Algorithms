@@ -2,6 +2,14 @@
 Author : Rajob Raihan Monmoy
 Email : iammonmoy@gmail.com
 */
+/*
+Tutorial :https://www.youtube.com/watch?v=sJOZ3lvJnRI&t=1s
+TestCase:
+5
+100 500 200 300 600
+4
+212 417 112 426
+*/
 #include <bits/stdc++.h>
 using namespace std;
 int main()
