@@ -2,6 +2,12 @@
 Author : Rajob Raihan Monmoy
 Email : iammonmoy@gmail.com
 */
+/*
+TestCase :
+20
+7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1
+3
+*/
 #include <bits/stdc++.h>
 using namespace std;
 int main()
@@ -25,7 +31,7 @@ int main()
 
     for(int i = 0; i<page && q.size() < frame; i++)
     {
-         if(!check[pages[i]])
+        if(!check[pages[i]])
         {
             q.push(pages[i]);
             check[pages[i]]=true;
