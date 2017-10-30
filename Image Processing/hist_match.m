@@ -5,6 +5,9 @@ function y = hist_match(input,desired)
     input_hist = imhist(input);
     output_hist = imhist(desired);
     
+    inputMax = max(input_hist);
+    outputMax = max(output_hist);
+    
     [rInput,cInput] = size(input); %total pixel values of input image
     [rOutput,cOutput] = size(desired); %total pixel values of output image
     
@@ -24,8 +27,8 @@ function y = hist_match(input,desired)
     end
     
     for i = 1:256
-          cummulativeInput(i) = floor(cummulativeInput(i)*255); %floor both input and output image 
-          cummulativeOutput(i) = floor(cummulativeOutput(i)*255);
+          cummulativeInput(i) = floor(cummulativeInput(i)*inputMax); %floor both input and output image 
+          cummulativeOutput(i) = floor(cummulativeOutput(i)*outputMax);
     end
     
     map = zeros(1,256);
