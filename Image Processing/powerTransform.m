@@ -1,5 +1,4 @@
-img=imread('monmoy.jpg');
-img=rgb2gray(img);
+img=imread('logTransform.tif');
 
 img2=im2double(img);
 [r,c] = size(img2);
