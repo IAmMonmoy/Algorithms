@@ -1,4 +1,4 @@
-img = imread('smooth.gif');
+img = imread('median.tif');
 
 workImage = double(img);
 
@@ -54,21 +54,30 @@ for i = 1:d %for dimension of image
             index = 1; %array index of A
             for l = -x:x %for mask iteration
                 for m = -y:y
-                   A(index,1) = workImage(j,k,i);
+                   A(index,1) = workImage(j+l,k+m,i);
                    index = index+1;
                 end
             end
-            sort(A);
+            A=sort(A);
             mid = ceil((p*q)/2); %if 3*3 mask it's 5 if 5*5 its 13
+            disp(A);
+            disp(A(mid,1));
             finalImage2(j,k,i) = A(mid,1);
         end
     end
 end
 
-figure,imshow(img);
-figure,imshow(uint8(finalImage));
-figure,imshow(uint8(finalImage1));
-figure,imshow(uint8(finalImage2));
+subplot(2,2,1);
+imshow(img);
+subplot(2,2,2);
+imshow(uint8(finalImage));
+title('minimum');
+subplot(2,2,3);
+imshow(uint8(finalImage1));
+title('maximum');
+subplot(2,2,4);
+imshow(uint8(finalImage2));
+title('median');
 
 
 
