@@ -1,4 +1,4 @@
-function y = hist_equalize(img)
+    img = imread('stretch.tif');
 
     img2 = img; %for equalized image
     
@@ -43,5 +43,4 @@ function y = hist_equalize(img)
     subplot(2,2,4);
     stem(histogramEqualizedImage,'marker','none');
     
-    y = cummulativeProbability;
-end
+   
