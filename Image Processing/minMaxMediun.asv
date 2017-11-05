@@ -34,14 +34,12 @@ end
 finalImage1 = zeros(r,c,d);
 
 for j = 1:r
-    for k = 1:c
+    for k = 1:c-1
         mx = 0; %find maximum
         for l = -x:x %for mask iteration
             for m = -y:y
-                if(j+l >=1 && j+l <= r && k+m >=1 && k+m <= c) %if inside the bound then calculate. Otherwise add nothing
-                    if(workImage(j+l,k+m)> mx)
-                        mx = workImage(j+l,k+m);
-                    end
+                if(workImage(j+l,k+m)> mx)
+                    mx = workImage(j+l,k+m);
                 end
             end
         end
@@ -53,20 +51,20 @@ end
 finalImage2 = zeros(r,c,d);
 A = zeros(9,1);
 
-for j = 1:r
-    for k = 1:c
+for j = 2:r-1
+    for k = 2:c-1
         index = 1; %array index of A
         for l = -x:x %for mask iteration
             for m = -y:y
-                 if(j+l >=1 && j+l <= r && k+m >=1 && k+m <= c) %if inside the bound then calculate. Otherwise add nothing
-                   A(index,1) = workImage(j+l,k+m);
-                   index = index+1;
-                 end
+               A(index,1) = workImage(j+l,k+m,i);
+               index = index+1;
             end
         end
         A=sort(A);
         mid = ceil((p*q)/2); %if 3*3 mask it's 5 if 5*5 its 13
-        finalImage2(j,k) = A(mid,1);
+        disp(A);
+        disp(A(mid,1));
+        finalImage2(j,k,i) = A(mid,1);
     end
 end
 
