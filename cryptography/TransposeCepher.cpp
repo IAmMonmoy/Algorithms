@@ -10,7 +10,6 @@ string encrypt(int key, string plainText)
     {
         for(int j = i; j < len; j+=key)
         {
-            ara[j] = 0;
             finalText+=plainText[j];
         }
     }
@@ -23,18 +22,14 @@ string decrypt(int key, string Encrypted)
     int len = Encrypted.length();
     string decryted = "";
 
-    int finalKey = ceil((double)len/(double)key);
+    int finalKey = ((double)len/(double)key);
 
-     int ara[1000];
-     memset(ara,1,sizeof(ara));
      for(int i = 0; i < finalKey && finalKey < len; i++)
      {
         for(int j = i; j < len; j+=finalKey)
         {
-            ara[j] = 0;
             decryted+=Encrypted[j];
         }
-
      }
 
     return decryted;

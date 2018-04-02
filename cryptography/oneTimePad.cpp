@@ -152,7 +152,7 @@ int main()
 
     string encrypted = encrypt(plainText);
     cout<<encrypted<<" Encrypted"<<endl;
-    cout<<decrypt(encrypted);
+    cout<<decrypt(encrypted)<< " Decrypted"<<endl;
 
     return 0;
 }
